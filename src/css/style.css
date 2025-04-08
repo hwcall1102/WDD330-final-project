@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
 
 :root {
-  --font-body: 'Montserrat', Helvetica, sans-ser;
-  --font-headline: 'Montserrat';
+  --font-body: "Montserrat", Helvetica, sans-ser;
+  --font-headline: "Montserrat";
   /* colors */
   --primary-color: #1b264f;
-  --secondary-color: #BB342F;
+  --secondary-color: #bb342f;
   --accent1-color: #fbfbfb;
   --accent2-color: #bcabae;
   --headline-color-on-white: #1b264f;
@@ -57,7 +57,7 @@ header {
   display: block;
   height: 200px;
   border: solid 5px (var--primary-color);
-  border-radius: .5em;
+  border-radius: 0.5em;
 }
 .hero .logo {
   position: absolute;
@@ -69,7 +69,7 @@ header {
   font-size: var(--small-font);
   width: 90px;
   height: 90px;
-  border-radius: .5em;
+  border-radius: 0.5em;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -99,12 +99,12 @@ button {
   text-align: center;
 }
 
-#weather, #map {
+#weather,
+#map {
   border: 2px solid var(--secondary-color);
-  border-radius: .5em;
+  border-radius: 0.5em;
 }
 
- 
 .remove-item {
   font-size: 1.5em;
   color: red;
@@ -160,7 +160,6 @@ button {
   #quote {
     grid-column: 1/5;
   }
-
 }
 
 footer {
