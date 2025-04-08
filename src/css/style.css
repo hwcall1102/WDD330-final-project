@@ -1,42 +1,43 @@
-:root {
-  --font-body: Arial, Helvetica, sans-serif;
-  --font-headline: Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  /* colors */
-  --primary-color: #f0a868;
-  --secondary-color: #525b0f;
-  --tertiary-color: #a4b8c4;
-  --light-grey: #d0d0d0;
-  --dark-grey: #303030;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 
+:root {
+  --font-body: 'Montserrat', Helvetica, sans-ser;
+  --font-headline: 'Montserrat';
+  /* colors */
+  --primary-color: #1b264f;
+  --secondary-color: #BB342F;
+  --accent1-color: #fbfbfb;
+  --accent2-color: #bcabae;
+  --headline-color-on-white: #1b264f;
+  --headline-color-on-color: #fbfbfb;
+  --paragraph-color-on-white: #1b264f;
+  --paragraph-color-on-color: #fbfbfb;
   /* sizes */
   --font-base: 18px;
   --small-font: 0.8em;
   --large-font: 1.2em;
 }
-* {
-  box-sizing: border-box;
-}
+
 body {
   margin: 0;
   font-family: var(--font-body);
   font-size: var(--font-base);
-  color: var(--dark-grey);
+  color: var(--paragraph-color-on-color);
+  background-color: var(--primary-color);
 }
 img {
   max-width: 100%;
 }
 header {
   display: flex;
-  justify-content: space-between;
-  padding: 0 10px;
+  justify-content: space-evenly;
+  padding: 0 0 30px 0;
 }
 .logo {
   line-height: 60px;
-  width: 245px;
   overflow: hidden;
   display: flex;
   font-size: 30px;
-  text-align: right;
   font-family: var(--font-headline);
 }
 .logo img {
@@ -50,178 +51,60 @@ header {
 .hero {
   position: relative;
 }
+.hero img {
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  height: 200px;
+  border: solid 5px (var--primary-color);
+  border-radius: .5em;
+}
 .hero .logo {
   position: absolute;
   left: calc(50% - 60px);
-  bottom: -10px;
-  background-color: white;
+  bottom: 160px;
+  background-color: var(--accent2-color);
 }
 .logo--square {
   font-size: var(--small-font);
-  width: 110px;
-  height: 80px;
-
+  width: 90px;
+  height: 90px;
+  border-radius: .5em;
+  display: flex;
   flex-direction: column;
   align-items: flex-end;
-  box-shadow: 1px 1px 4px var(--light-grey);
-  justify-content: center;
-  align-items: center;
-  line-height: 1;
+  box-shadow: 1px 1px 4px var(--accent2-color);
 }
 .logo--square img {
   width: 90px;
   height: 90px;
-  margin-top: -1.3em;
-}
-.logo--square > div {
-  margin-top: -1.7em;
-}
-/* utility classes */
-.highlight {
-  color: var(--tertiary-color);
 }
 
 button {
-  padding: 0.5em 2em;
-  background-color: var(--secondary-color);
-  color: white;
+  padding: 5px;
+  background-color: var(--accent2-color);
+  color: var(--paragraph-color-on-white);
   margin: auto;
   display: block;
   border: 0;
-  font-size: var(--large-font);
+  font-size: var(--small-font);
   cursor: pointer;
 }
 .divider {
-  border-bottom: 2px solid var(--primary-color);
+  border-bottom: 2px solid var(--secondary-color);
 }
 /* End utility classes */
 
-/* Cart icon styles */
-.cart {
-  padding-top: 1em;
-  position: relative;
+.main-grid {
   text-align: center;
 }
 
-.cart svg {
-  width: 25px;
-}
-.cart:hover svg {
-  fill: gray;
+#weather, #map {
+  border: 2px solid var(--secondary-color);
+  border-radius: .5em;
 }
 
-/* End cart icon styles */
-
-.mission {
-  padding: 0 0.5em;
-  /* margin: 0.5em 0; */
-  line-height: 1.3;
-  max-width: 600px;
-  margin: auto;
-}
-/* Product Grid */
-.product-grid {
-  columns: 4;
-  column-gap: 1rem;
-  list-style-type: none;
-  text-align: center;
-}
-
-.product-grid a {
-  text-decoration: none;
-  color: var(--dark-grey);
-  font-size: var(--small-font);
-}
-
-.product-grid img {
-  width: min(100px, 90%);
-}
-.products {
-  padding: 0.5em;
-}
-.product-list {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  list-style-type: none;
-  padding: 0;
-}
-.product-list a {
-  text-decoration: none;
-  color: var(--dark-grey);
-}
-/* Styles for product lists */
-.product-card {
-  flex: 1 1 45%;
-  margin: 0.25em;
-  padding: 0.5em;
-  border: 1px solid var(--light-grey);
-  max-width: 250px;
-}
-.product-card h2,
-.product-card h3,
-.product-card p {
-  margin: 0.5em 0;
-}
-
-.card__brand {
-  font-size: var(--small-font);
-}
-
-.card__name {
-  font-size: 1em;
-}
-/* End product list card */
-
-.product-detail {
-  padding: 1em;
-  max-width: 500px;
-  margin: auto;
-}
-
-.product-detail img {
-  width: 100%;
-}
-
-/* Start cart list card styles */
-.cart-card {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1em 1em 1em 1em 1em;
-  max-height: 120px;
-  position: relative;
-  padding-right: 15px;
-}
-
-.cart-card__image {
-  grid-row: 1/3;
-  grid-column: 1;
-  max-width: 80px;
-  flex-shrink: 0;
-}
-.cart-card p {
-  margin-top: 0;
-}
-.cart-card .card__name {
-  grid-row: 1;
-  grid-column: 2;
-}
-
-.cart-card__color {
-  grid-row: 2;
-  grid-column: 2;
-}
-
-.cart-card__quantity {
-  grid-row: 1;
-  grid-column: 3;
-}
-
-.cart-card__price {
-  grid-row: 2;
-  grid-column: 3;
-}
-
+ 
 .remove-item {
   font-size: 1.5em;
   color: red;
@@ -257,64 +140,30 @@ button {
     max-width: 1080px;
     margin: auto;
   }
-  .mission {
-    font-size: 1.2em;
+  .main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
-  .cart-card {
-    font-size: inherit;
-    grid-template-columns: 150px auto 15%;
+  .main-item {
+    padding: 1em;
+    margin: 1em;
   }
+  #greeting {
+    grid-column: 1 / 5;
+  }
+  #weather {
+    grid-column: 1/3;
+  }
+  #map {
+    grid-column: 3/5;
+  }
+  #quote {
+    grid-column: 1/5;
+  }
+
 }
 
 footer {
   font-size: var(--small-font);
   padding: 1em;
-}
-
-#form-checkout {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-.checkoutInfo {
-  grid-column: 1/3;
-  margin: 10px;
-}
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-.form-info {
-  padding: 5px;
-  margin: 5px;
-}
-
-.checkout-summary {
-  grid-column: 3/4;
-  grid-row: 1;
-  margin: 10px;
-}
-
-.order__summary {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-.order__summary div {
-  padding: 10px;
-}
-
-hr {
-  grid-column: 1/3;
-  border: 1px solid black;
-  border-radius: 0.5em;
-  width: 90%;
-}
-
-#orderTotal {
-  font: bolder;
-}
-
-#checkoutSubmit {
-  grid-row: 2;
-  grid-column: 3/4;
 }

@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sleep Outside | Home</title>
+    <title>Good Morning | Home</title>
     <link rel="stylesheet" href="/css/style.css" />
+    <link rel="icon" href="/public/images/sunrise-logo.ico" />
     <script src="js/main.js" type="module"></script>
   </head>
   <body>
@@ -12,51 +13,42 @@
     <main class="divider">
       <div class="hero">
         <img
-          src="/images/banner-sm.jpg"
-          srcset="images/banner-sm.jpg 500w, images/banner.jpg"
-          alt="image of a high mountain lake"
+          src="/public/images/sunrise-banner.jpg"
+          alt="A beautiful sunrise"
         />
         <div class="logo logo--square">
-          <img src="/images/noun_Tent_2517.svg" alt="tent image for logo" />
-          <div>Sleep<span class="highlight">Outside</span></div>
+          <a href="/index.html"><img src="/public/images/sunrise-logo.png" alt="an icon of a sun rising over mountains" /></a>
         </div>
       </div>
-      <section class="mission">
-        <p>We spend too much time these days indoors...sitting usually.</p>
-        <p>No wonder we are a mess!</p>
-        <p>
-          What we really need is to get outside...in fact SLEEP outside. Our
-          mission is to provide you with everything you need to do this
-          comfortably at an affordable price.
-        </p>
-      </section>
-      <section class="products">
-        <ul class="product-grid">
-          <li>
-            <a href="product_listing/index.html?category=tents">
-              <img src="images/category-tents.svg" alt="Tents" />
-              <h2>Tents</h2>
-            </a>
-          </li>
-          <li>
-            <a href="product_listing/index.html?category=backpacks">
-              <img src="images/category-backpacks.svg" alt="Backpacks" />
-              <h2>Backpacks</h2>
-            </a>
-          </li>
-          <li>
-            <a href="product_listing/index.html?category=sleeping-bags">
-              <img src="images/category-sleepingbags.svg" alt="Sleeping Bags" />
-              <h2>Sleeping Bags</h2>
-            </a>
-          </li>
-          <li>
-            <a href="product_listing/index.html?category=hammocks">
-              <img src="images/category-hammocks.svg" alt="Hammocks" />
-              <h2>Hammocks</h2>
-            </a>
-          </li>
-        </ul>
+      
+      <section class="content">
+        <div class="main-grid">
+          <section class="main-item" id="greeting">
+            <h3>Today is Long date format dynamically added by JS</h3>
+          </section>
+          <section class="main-item" id="weather">
+            <h3>Weather</h3>
+            <p>weather api dynamically added</p>
+            <form>
+              <label>Change Zip</label>
+              <input type="text" id="zipcode" name="zipcode" />
+              <button type="submit">search</button>
+            </form>            
+          </section>
+          <section class="main-item" id="map">
+            <h3>Traffic</h3>
+            <p>Map/traffic api dynamically added</p>
+            <form>
+              <label>Change Destination</label>
+              <input type="text" id="destination" name="destination" />
+              <button type="submit">search</button>
+            </form>
+          </section>
+          <section class="main-item" id="quote">
+            <h3 class="">Quote of the day</h3>
+            <p>Quote of the day api, dynamically added</p>
+          </section>
+        </div>
       </section>
     </main>
     <footer id="main-footer"></footer>
