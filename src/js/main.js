@@ -1,5 +1,11 @@
-import { loadHeaderFooter } from "./utils.mjs";
+import { loadHeaderFooter, formattedDate } from "./utils.mjs";
+import weather from './weather.mjs';
+import startMapApp from './map.mjs';
+import { loadQuotes, previousQuote } from "./quotes.mjs";
 
 loadHeaderFooter();
-
-listing.init();
+formattedDate();
+weather();
+startMapApp();
+loadQuotes();
+previousQuote();
