@@ -1,8 +1,11 @@
 import {getGeolocationForLocalIpLat, getGeolocationForLocalIpLon} from "./utils.mjs"
 // home java weather API's and random card generator
 
-const myLat = await getGeolocationForLocalIpLat()
-const myLong = await getGeolocationForLocalIpLon()
+async function init() {
+    const myLat = await getGeolocationForLocalIpLat()
+    const myLong = await getGeolocationForLocalIpLon()
+}
+init();
 
 // select HTML elements in the document
 const currentTemp = document.querySelector('#current-temp');
