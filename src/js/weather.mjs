@@ -1,12 +1,6 @@
 import {getGeolocationForLocalIpLat, getGeolocationForLocalIpLon} from "./utils.mjs"
 // home java weather API's and random card generator
 
-async function init() {
-    const myLat = await getGeolocationForLocalIpLat()
-    const myLong = await getGeolocationForLocalIpLon()
-}
-init();
-
 // select HTML elements in the document
 const currentTemp = document.querySelector('#current-temp');
 const weatherIcon = document.querySelector('#weather-icon');
@@ -23,11 +17,16 @@ const foreThree = document.querySelector('#fore-three');
 // create required variables for the URL
 const myKey = 'cb467b1eb003fad255f28a2c2646b6fa';
 
-const myURL = `//api.openweathermap.org/data/2.5/weather?lat=${myLat}&lon=${myLong}&appid=${myKey}&units=imperial`;
-const foreURL =`//api.openweathermap.org/data/2.5/forecast?lat=${myLat}&lon=${myLong}&appid=${myKey}&units=imperial`;
 
 export default async function apiFetch() {
     try {
+        const myLat = await getGeolocationForLocalIpLat()
+        const myLong = await getGeolocationForLocalIpLon()
+
+        const myURL = `//api.openweathermap.org/data/2.5/weather?lat=${myLat}&lon=${myLong}&appid=${myKey}&units=imperial`;
+
+
+    
     const response = await fetch(myURL);
     if (response.ok) {
         const data = await response.json();
@@ -41,6 +40,11 @@ export default async function apiFetch() {
     }
 
     try {
+        const myLat = await getGeolocationForLocalIpLat()
+        const myLong = await getGeolocationForLocalIpLon()
+
+    const foreURL =`//api.openweathermap.org/data/2.5/forecast?lat=${myLat}&lon=${myLong}&appid=${myKey}&units=imperial`;
+    
     const response = await fetch(foreURL);
     if (response.ok) {
         const foreData = await response.json();
