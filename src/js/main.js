@@ -7,5 +7,7 @@ loadHeaderFooter();
 formattedDate();
 weather();
 startMapApp();
+document.getElementById('nextBtn').addEventListener('click', loadQuotes());
+document.getElementById('prevBtn').addEventListener('click', previousQuote());
 loadQuotes();
-previousQuote();
+

@@ -124,6 +124,25 @@ button:hover {
   border-radius: 0.5em;
 }
 
+.quote-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+#quoteText {
+  grid-column: 1/5;
+}
+#author {
+  grid-column: 1/5;
+}
+#prevBtn {
+  grid-column: 2/3;
+}
+#nextBtn {
+  grid-column: 3/4;
+}
+
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;

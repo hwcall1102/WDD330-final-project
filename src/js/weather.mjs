@@ -41,6 +41,7 @@ export default async function apiFetch() {
     const response = await fetch(foreURL);
     if (response.ok) {
         const foreData = await response.json();
+        console.log(foreData)
         displayForeResults(foreData);
         await console.log(foreData);
     }
@@ -84,5 +85,3 @@ let weekdayCap = weekday.charAt(0).toUpperCase() + weekday.slice(1);
 return weekdayCap
 }
 
-// start process
-apiFetch();

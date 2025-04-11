@@ -49,3 +49,4 @@ function displayQuote(result) {
   quoteText.innerHTML = `"${result.quote}"`;
   authorText.innerHTML = `– ${result.author}`;
 }
+
