@@ -8,10 +8,13 @@ const captionDesc = document.querySelector('#description');
 const tempHigh = document.querySelector('#high');
 const humidity = document.querySelector('#humidity');
 const dayOne = document.querySelector('#day-one');
+const iconOne = document.querySelector('#icon-one');
 const foreOne = document.querySelector('#fore-one');
 const dayTwo = document.querySelector('#day-two');
+const iconTwo = document.querySelector('#icon-two');
 const foreTwo = document.querySelector('#fore-two');
 const dayThree = document.querySelector('#day-three');
+const iconThree = document.querySelector('#icon-three');
 const foreThree = document.querySelector('#fore-three');
 
 // create required variables for the URL
@@ -20,6 +23,7 @@ const myKey = 'cb467b1eb003fad255f28a2c2646b6fa';
 
 export default async function apiFetch() {
     try {
+        // to use await functionality calls for geolocation for lat and long and myurl must ben encapsulated in a async function, moved within the api fetch function
         const myLat = await getGeolocationForLocalIpLat()
         const myLong = await getGeolocationForLocalIpLon()
 
@@ -50,10 +54,9 @@ export default async function apiFetch() {
         const foreData = await response.json();
         console.log(foreData)
         displayForeResults(foreData);
-        await console.log(foreData);
     }
     else {
-        throw Error(await resonse.text());
+        throw Error(await response.text());
     }
     } catch (error) {
         console.log(error);
@@ -76,12 +79,21 @@ function displayResults(data) {
 };
 
 function displayForeResults(data) {
-dayOne.innerHTML = `${toWeekday(data.list[1].dt)}:  `;
-foreOne.innerHTML = `${data.list[1].main.temp_max.toFixed(0)}&deg;/${data.list[0].main.temp_min.toFixed(0)}&deg; F`;
-dayTwo.innerHTML = `${toWeekday(data.list[9].dt)}:  `;
-foreTwo.innerHTML = `${data.list[9].main.temp_max.toFixed(0)}&deg;/${data.list[8].main.temp_min.toFixed(0)}&deg; F`;
-dayThree.innerHTML = `${toWeekday(data.list[17].dt)}:  `;
-foreThree.innerHTML = `${data.list[17].main.temp_max.toFixed(0)}&deg;/${data.list[16].main.temp_min.toFixed(0)}&deg; F`;
+    dayOne.innerHTML = `${toWeekday(data.list[3].dt)}  `;
+    foreOne.innerHTML = `${data.list[5].main.temp_max.toFixed(0)}&deg; / ${data.list[2].main.temp_min.toFixed(0)}&deg; F`;
+    const iconOneSRC = `https://openweathermap.org/img/wn/${data.list[3].weather[0].icon}@2x.png`;
+    iconOne.setAttribute('SRC', iconOneSRC);
+    iconOne.setAttribute('alt', data.list[3].weather[0].description);
+    dayTwo.innerHTML = `${toWeekday(data.list[11].dt)}  `;
+    foreTwo.innerHTML = `${data.list[13].main.temp_max.toFixed(0)}&deg; / ${data.list[9].main.temp_min.toFixed(0)}&deg; F`;
+    const iconTwoSRC = `https://openweathermap.org/img/wn/${data.list[10].weather[0].icon}@2x.png`;
+    iconTwo.setAttribute('SRC', iconTwoSRC);
+    iconTwo.setAttribute('alt', data.list[11].weather[0].description);
+    dayThree.innerHTML = `${toWeekday(data.list[19].dt)}  `;
+    foreThree.innerHTML = `${data.list[21].main.temp_max.toFixed(0)}&deg; / ${data.list[17].main.temp_min.toFixed(0)}&deg; F`;
+    const iconThreeSRC = `https://openweathermap.org/img/wn/${data.list[19].weather[0].icon}@2x.png`;
+    iconThree.setAttribute('SRC', iconThreeSRC);
+    iconThree.setAttribute('alt', data.list[18].weather[0].description);
 }
 
 function toWeekday(epoch) {
@@ -92,3 +104,26 @@ let weekdayCap = weekday.charAt(0).toUpperCase() + weekday.slice(1);
 return weekdayCap
 }
 
+var cards = document.querySelectorAll('.card');
+
+[...cards].forEach((card) =>{
+    card.addEventListener('click', function() {
+        card.classList.toggle('is-flipped');
+    });
+});
+
+const card = document.querySelector('#weather .card');
+const weatherSection = document.getElementById('weather');
+
+const observer = new MutationObserver(() => {
+  if (card.classList.contains('is-flipped')) {
+    weatherSection.classList.add('is-flipped');
+  } else {
+    weatherSection.classList.remove('is-flipped');
+  }
+});
+
+observer.observe(card, {
+  attributes: true,
+  attributeFilter: ['class']
+})
